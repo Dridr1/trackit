@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import UserData from '../../contexts/UserData';
-
+import { Container } from './Styles';
 export default function Hoje() {
 
     const Navigate = useNavigate();
@@ -24,8 +24,8 @@ export default function Hoje() {
     },[user.userData.token, Navigate])
 
     return (
-        <div>
-            HOJE!
-        </div>
+        <Container>
+            
+        </Container>
     )
 }
