@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { useLocation } from 'react-router-dom';
 import { Container, ProgressbarContainer, StyledLink } from './Styles';
 import 'react-circular-progressbar/dist/styles.css';
+import HabitsStats from '../../contexts/HabitsStats';
 
 export default function BottomBar() {
-
+    const {percentage} = useContext(HabitsStats);
     const location = useLocation();
 
     return (
@@ -24,7 +25,7 @@ export default function BottomBar() {
                                     background
                                     text='Hoje'
                                     backgroundPadding={6}
-                                    value={40}
+                                    value={percentage.getPercentage(percentage.done, percentage.total)}
                                     styles={buildStyles({
                                         backgroundColor: "#52b6ff",
                                         textColor: "#ffffff",

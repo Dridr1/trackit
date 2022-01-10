@@ -13,6 +13,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 161px;
+    z-index: 3;
 `;
 
 const ProgressbarContainer = styled.div`
