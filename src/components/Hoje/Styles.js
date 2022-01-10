@@ -24,6 +24,7 @@ const Subtitle = styled.h3`
 const HabitContainer = styled.div`
     width: 100%;
     display: flex;
+    justify-content: space-between;
     background: white;
     margin-bottom: 10px;
     padding: 13px;
