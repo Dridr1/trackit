@@ -11,6 +11,7 @@ import Habits from './Habits/Index';
 import History from './History/Index'
 import UserData from '../contexts/UserData';
 import HabitsStats from '../contexts/HabitsStats';
+import Logout from './Logout/Index';
 
 export default function App() {
 
@@ -20,13 +21,18 @@ export default function App() {
         done: 0,
         getPercentage: (done, total) => total === 0 ? 0 : (done / total * 100)
     });
+    const [logoutVisible, setLogoutVisible] = useState(false);
 
     return (
         <UserData.Provider value={{ userData, setUserData }}>
             <HabitsStats.Provider value={{ percentage, setPercentage }}>
                 <BrowserRouter>
-                    <TopBar />
+                    <TopBar setLogoutVisible={setLogoutVisible} />
                     <BottomBar />
+                    {logoutVisible ?
+                        <Logout setLogoutVisible={setLogoutVisible} />
+                        :
+                        ''}
                     <Routes>
                         <Route path='/' element={<Login />} />
                         <Route path='/habitos' element={<Habits />} />
